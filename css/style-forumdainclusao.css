@@ -1,0 +1,1930 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #F5F5F5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between; /* Alinha o primeiro item à esquerda e o último à direita */
+  align-items: center;
+  gap: 15px; /* Pode remover se não quiser espaço extra no desktop */
+  height: 80px;
+  background-color: #ffffff;
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Padrão para telas grandes (desktop) */
+
+
+/* Telas médias (tablets) */
+@media (max-width: 1310px) {
+  .footer-content {
+    justify-content: space-between;
+  }
+
+  .filtros-galeria {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  nav ul {
+    gap: 12px;         /* diminui o espaçamento entre os links */
+    flex-wrap: nowrap; /* impede quebra de linha */
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;     /* texto levemente menor */
+    padding: 4px 8px;      /* padding mais compacto */
+  }
+}
+
+/* Telas pequenas (celulares) */
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    padding: 10px 20px;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  .logo {
+    margin: auto; 
+  }
+
+  .logo img {
+    width: 48px;
+    height: auto;
+  }
+
+  #imagem-logo {
+    width: 60px;
+    height: auto;
+  }
+
+  header > nav[aria-label="Menu de navegação principal"] {
+    display: none;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;   /* Destaque maior no hero */
+    margin-bottom: 20px;
+    text-align: center;  /* Centraliza para impacto */
+    color: #ffffff;         /* Mantém contraste alto */
+  }
+  
+  .cards-container,
+  .depoimentos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventos-grid {
+    justify-items: center;
+  }
+
+  .evento-card {
+    max-width: 280px;
+    width: 100%;
+  }
+
+  .abrir-menu {
+    display: flex; /* Ou 'block' para o mobile */
+    transition: transform 0.4s ease-in-out; /* Adiciona a transição aqui */
+    opacity: 0; /* Oculta o botão por padrão */
+    visibility: hidden; /* Oculta o botão por padrão */
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease-in-out;
+  }
+
+  .abrir-menu.mostrar-mobile {
+    opacity: 1; /* Mostra o botão */
+    visibility: visible; /* Torna o botão visível */
+  }
+}
+
+/* Telas muito pequenas (smartphones compactos) */
+@media (max-width: 480px) {
+  
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif; /* Fonte limpa e acessível */
+  font-weight: 700; /* Títulos fortes */
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+}
+
+
+.imagem-fixa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  transition: transform 0.3s ease;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.imagem-fixa:hover {
+  transform: scale(1.2); /* aumenta 20% ao passar o mouse */
+}
+
+.payment-form i {
+  font-size: 22px; /* Ajuste esse valor conforme necessário */
+}
+
+.logo {
+  height: 100%;
+  font-family: 'Baloo 2', cursive;
+  font-size: 28px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  height: 100%;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo a:hover {
+  color: #4169E1;
+}
+
+#imagem-logo {
+  height: 80%;
+  width: auto;
+  margin-right: 10px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap; /* permite quebrar apenas se for necessário */
+  gap: 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a,
+.menu-lateral ul li a {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 6px 10px;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  transition: color 0.3s ease;
+  overflow: hidden;
+}
+
+nav ul li a::after,
+.menu-lateral ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #FFE135;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* Hover com linha */
+nav ul li a:hover::after,
+.menu-lateral ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Linha ativada também no ativo */
+nav ul li a.ativo::after,
+.menu-lateral ul li a.ativo::after {
+  transform: scaleX(1);
+}
+
+/* Link da página atual */
+nav ul li a.ativo,
+.menu-lateral ul li a.ativo {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+nav ul li a.ativo i,
+.menu-lateral ul li a.ativo i {
+  color: #ff0000;
+}
+
+nav ul li a:hover {
+  color: #ff0000;
+}
+
+/* ==================== BOTÃO HAMBÚRGUER ==================== */
+.abrir-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 5px;
+  z-index: 2000;
+  transition: transform 0.4s ease-in-out;
+}
+
+.abrir-menu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Move o botão para a direita quando o menu está aberto */
+.abrir-menu.aberto {
+  transform: translateX(170px);
+}
+
+.abrir-menu.ativo span:nth-child(2) {
+  opacity: 0;
+}
+
+.abrir-menu.ativo span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.abrir-menu.ativo span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Animação de rotação para o "X" quando o mouse passa sobre ele */
+.abrir-menu.ativo:hover {
+  background-color: rgba(180, 200, 220, 0.4);
+  border-radius: 50%; /* Adicione esta linha para criar a forma circular */
+}
+
+/* Só aparece em telas pequenas */
+@media (min-width: 769px) {
+  .abrir-menu {
+    display: none;
+  }
+
+  header > nav[aria-label="Menu de navegação principal"] {
+    display: block; /* Garante que o menu de desktop apareça */
+  }
+}
+
+/* Menu lateral oculto por padrão */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background-color: #aaaaaa;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 1rem;
+  font-family: 'Baloo 2', cursive;
+  overflow-y: auto;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+/* Quando aberto */
+.menu-lateral.aberto {
+  transform: translateX(0);
+}
+
+/* Overlay */
+.overlay-menu {
+  display: none;
+  position: fixed;
+  inset: 0; /* cobre tela toda */
+  background: rgba(0,0,0,0.4);
+  z-index: 900;
+}
+
+
+/* Lista e itens */
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.menu-lateral ul li {
+  margin: 20px 0;
+  padding: 8px 10px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.menu-lateral ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-lateral ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #FFE135;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.menu-lateral ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+.menu-lateral ul li a:focus,
+.menu-lateral ul li a:active {
+  outline: none;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  transform: translateX(4px);
+  padding-left: 14px;
+}
+
+.menu-lateral ul li a {
+  -webkit-tap-highlight-color: transparent;  /* remove highlight cinza no mobile */
+  -webkit-focus-ring-color: transparent;     /* remove anel de foco azul no Safari/Chrome */
+  -webkit-tap-highlight-color: transparent; /* remove o cinza no toque em dispositivos móveis */
+  outline: none; /* remove borda de foco em navegadores que ainda aplicam */
+  background-color: transparent;
+}
+
+/* Ícones se quiser usar Font Awesome */
+.menu-lateral i {
+  color: #000000;
+}
+
+
+/* Animação de entrada */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.topo-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-menu-img {
+  width: 60px;
+  height: auto;
+  animation: bounce 1.5s ease;
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08) rotate(-2deg); }
+  100% { transform: scale(1); }
+}
+
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.4); /* tom escuro e translúcido */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Ativo com menu aberto */
+.menu-lateral.aberto ~ .overlay-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+
+
+
+/* Estilos da Seção de Parceiros */
+
+
+/* Estilo para as imagens dos logos */
+.logos-container img {
+  /* (Seus estilos de altura e filtros...) */
+  max-height: 80px; /* Sugestão: Aumente a altura para que o círculo seja visível */
+  width: 80px;      /* Sugestão: Defina a mesma largura da altura */
+  object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
+  
+  /* ESTA É A MÁGICA PARA DEIXAR REDONDO: */
+  border-radius: 50%; /* Transforma o quadrado em um círculo perfeito */
+  
+  /* Sugestão: Adicione uma borda sutil para destacar o círculo */
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  padding: 2px; /* Espaço entre a imagem e a borda */
+  
+  /* (Seus estilos de filtro e transição...) */
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+
+  background-color: #FFFFFF;
+}
+
+/* Garante que o hover funcione com o novo formato */
+.logos-container img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1); /* Um zoom um pouco maior para compensar o formato */
+}
+
+
+
+
+/* Estilo para o nome da instituição (texto) */
+.logos-container .parceiro-texto {
+  /* Define o mesmo tamanho para que o alinhamento não se perca */
+  min-width: 100px;
+  height: 80px; /* Mesma altura que o logo em círculo */
+  
+  /* Configuração do texto */
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #444; /* Cor escura, mas não preta */
+  
+  /* Centraliza o texto verticalmente dentro do espaço */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Estilo sutil de borda para dar destaque */
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 20px; /* Borda levemente arredondada (não totalmente redonda) */
+  text-align: center;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.logos-container .parceiro-texto:hover {
+  color: #0080ff; /* Destaca a cor do texto no hover */
+  border-color: #0080ff;
+}
+
+
+
+.parceiros {
+  padding: 10px 0; /* Espaçamento interno em cima e embaixo */
+  background-color: #f7f7f7; /* Um fundo levemente diferente para destacar */
+  text-align: center;
+}
+
+.parceiros h2 {
+  font-size: 1.8rem;
+  color: #333;
+  font-family: 'Baloo 2', cursive;
+  margin-bottom: 5px;
+}
+
+/* Container que envolve todos os logos */
+.logos-container {
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o container */
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap; /* Permite que os logos quebrem a linha em telas menores */
+  justify-content: center; /* Centraliza os logos na linha */
+  align-items: center;
+  gap: 30px; /* Espaço entre os logos */
+}
+
+/* Estilo individual de cada logo */
+.logos-container img {
+  max-height: 70px; /* Altura máxima para todos os logos */
+  width: auto;
+  object-fit: contain; /* Garante que o logo não seja cortado */
+  filter: grayscale(100%); /* Deixa os logos em preto e branco */
+  opacity: 0.6; /* Deixa eles um pouco mais suaves */
+  transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse: cor e brilho! */
+.logos-container img:hover {
+  filter: grayscale(0%); /* Remove o preto e branco */
+  opacity: 1; /* Aumenta a opacidade */
+  transform: scale(1.05); /* Um leve zoom */
+}
+
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 600px) {
+  .logos-container {
+    padding: 0 15px; /* Adiciona um padding nas laterais */
+  }
+  .logos-container img {
+    max-height: 40px; /* Reduz o tamanho em celulares */
+  }
+}
+
+
+
+
+
+
+
+/* ===================== ESTILIZAÇÃO LOGOS FLUTUANTES (SOLTAS) ===================== */
+
+/* ESSENCIAL: Torna o .hero o ponto de referência */
+.hero {
+  position: relative;
+  /* Certifique-se de que a altura do hero é suficiente para as logos */
+  min-height: 500px; /* Ajuste se necessário */
+}
+
+/* Estilo Base para todas as Logos Flutuantes */
+.logo-flutuante {
+  position: absolute;
+  z-index: 11;
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.logo-flutuante img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Garante que a logo caiba no círculo sem cortar */
+  border-radius: 50%; /* Mantém o formato circular da borda/link */
+}
+
+/* 1. Regra de HOVER para a MAIORIA das Logos (Top, Left, Right) */
+.logo-flutuante:hover {
+  transform: scale(1.1) !important; 
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.logo-flutuante.logo-5:hover {
+  transform: translateX(-50%) scale(1.1) !important;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.logo-flutuante.logo-3:hover {
+  transform: translateY(-50%) scale(1.1) !important;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* POSICIONAMENTO INDIVIDUAL (Ajuste estas porcentagens para refinar a posição) */
+
+/* Logo 1: Superior Esquerdo */
+.logo-flutuante.logo-1 {
+  top: 15%;
+  left: 20%;
+  width: 100px;
+  height: 100px;
+}
+
+/* Logo 2: Superior Direito */
+.logo-flutuante.logo-2 {
+  top: 15%;
+  right: 18%;
+  width: 100px;
+  height: 100px;
+}
+
+/* Logo 3: Lateral Esquerda/Meio */
+.logo-flutuante.logo-3 {
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%); /* Centraliza verticalmente */
+  width: 100px;
+  height: 100px;
+  background-color: #FFFFFF;
+}
+
+/* Logo 4: Lateral Direita/Meio-Baixo */
+.logo-flutuante.logo-4 {
+  top: 65%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+}
+
+/* Logo 5: Centro/Fundo */
+.logo-flutuante.logo-5 {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  width: 100px;
+  height: 100px;
+}
+
+/* RESPONSIVIDADE PARA TELAS MENORES (Celulares) */
+@media (max-width: 768px) {
+  .logo-flutuante {
+    width: 60px; /* Reduz o tamanho geral no mobile */
+    height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Reposicionamento para evitar o conteúdo principal no mobile */
+  .logo-flutuante.logo-1 { top: 120px; left: 5%; }
+  .logo-flutuante.logo-2 { top: 180px; right: 5%; }
+  .logo-flutuante.logo-3 { top: 280px; left: 5%; }
+  /* Esconder algumas logos para não lotar a tela menor */
+  /*.logo-flutuante.logo-4,
+  .logo-flutuante.logo-5 {
+      display: none;
+  }*/
+}
+
+
+
+
+
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 20px;
+    overflow: hidden;
+    color: black;
+}
+
+/* Container do slider */
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden; /* evita scroll em imagens maiores */
+}
+
+/* Cada slide */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Imagens do slide */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%); /* escurece a imagem para dar contraste ao texto */
+}
+
+/* Overlay extra (camada escura sobre todas as imagens) */
+.slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* overlay preto 40% */
+  z-index: 1;
+}
+
+/* Mostra a imagem ativa */
+.slide.active {
+  opacity: 1;
+}
+
+/* Conteúdo da hero por cima das imagens */
+.hero-content {
+  position: relative;
+  z-index: 2; /* acima do overlay e das imagens */
+  color: #fff; /* texto branco para contraste */
+}
+
+/* Opcional: sombra escura para melhorar contraste do texto */
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,     /* 80% preto na esquerda */
+    rgba(0, 0, 0, 0.2) 100%    /* 20% preto na direita */
+  );
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  margin-top: 23vh;
+  font-size: 4.8rem;   
+  margin-bottom: 20px;
+  text-align: left;  
+  color: #F5F5F5;      
+}
+
+.hero-content h1 .light {
+  font-family: "Mulish", sans-serif;
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  font-weight: 200;    
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.botoes-hero button {
+  min-width: 140px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-align: center;
+  flex: 1 1 auto;
+}
+
+
+/* ===================== SEÇÃO: SOBRE O FÓRUM / HISTÓRIA (NOVO CSS) ===================== */
+
+.hero-sobre {
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+.historia-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: stretch; /* Garante que as colunas tenham a mesma altura */
+}
+
+/* Coluna da Imagem: Agora definimos o tamanho e o fundo na tag <a> */
+.historia-image-wrapper {
+  flex: 1.5; /* Ocupa mais espaço que o texto */
+  min-height: 450px; 
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* O elemento <a> dentro do wrapper recebe a imagem de fundo */
+#imagem-sobre {
+  display: block; 
+  width: 100%;
+  /* GARANTE QUE O ELEMENTO TENHA 100% DA ALTURA DO PAI (300px no mobile) */
+  height: 100%; 
+  
+  /* Configuração da Imagem de Fundo (SUSTITUA o caminho pela sua URL final) */
+  background-image: url('../assets/imagem-sobre.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* Coluna do Conteúdo (Texto e Botões) */
+.historia-content {
+  flex: 1; /* Ocupa a parte menor do espaço */
+  padding: 20px 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.historia-content h2 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.historia-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.historia-content p:last-of-type {
+  margin-bottom: 40px;
+}
+
+.historia-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; 
+}
+
+/* Estilo do botão secundário (Equipe e Parceiros) */
+.historia-buttons .secondary-btn {
+  background-color: transparent;
+  border: 2px solid #FFE135; /* Contorno amarelo */
+  color: #444;
+  padding: 10px 25px;
+}
+
+/* Garante que os botões usem as classes globais 'btn' e 'glare' corretamente */
+.historia-buttons .btn {
+  padding: 12px 30px;
+}
+
+/* Media Query para Mobile */
+@media (max-width: 900px) {
+  .historia-container {
+    flex-direction: column; /* Pilha as colunas */
+    gap: 0;
+  }
+  
+  .historia-content {
+    text-align: center;
+  }
+
+  .historia-buttons {
+    justify-content: center;
+  }
+
+  .historia-image-wrapper {
+    min-height: 300px; /* Altura mínima para a imagem no mobile */
+    order: -1; /* Coloca a imagem acima do texto no mobile */
+    margin-bottom: 40px;
+    /* CORREÇÃO: Remova o flex-basis: auto; se o seu IDE estiver gerando */ 
+  }
+
+  #imagem-sobre {
+    height: 300px; /* Garante que o A tenha uma altura VIZÍVEL no mobile */
+  }
+}
+
+
+
+
+
+/* ===================== SEÇÃO: O QUE FAZEMOS ===================== */
+
+.o-que-fazemos {
+  padding: 80px 20px;
+  background-color: #F5F5F5; /* Cor de fundo suave */
+  text-align: center;
+}
+
+.container-acoes {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.o-que-fazemos h2 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.o-que-fazemos .introducao {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cards-acoes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card-acao {
+  flex: 1 1 300px; /* Faz os cards terem no mínimo 300px e crescerem */
+  max-width: 380px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-acao:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-acao i {
+  font-size: 3rem;
+  color: #ff0000; /* Cor de destaque (vermelho) */
+  margin-bottom: 20px;
+  background-color: #FFE135; /* Cor de fundo do ícone (amarelo) */
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.card-acao h3 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.card-acao p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  flex-grow: 1; /* Garante que o parágrafo ocupe o espaço para alinhar botões */
+}
+
+/* Estilo do botão dentro do card (reaproveita .btn, mas ajusta a cor e o tamanho) */
+.card-acao .btn-acao {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 0;
+  width: 80%; /* Botão um pouco mais largo */
+  border: none;
+  cursor: pointer;
+  background-color: #ff0000; /* Vermelho */
+  color: #ffffff;
+}
+
+.card-acao .btn-acao:hover {
+  background-color: #cc0000;
+}
+
+
+
+/* Brilho ao passar pelos botões (geral) */
+.btn.glare,
+.btn-acao.glare, /* Adicionei o botão de Ação da nova seção */
+.cta-buttons .secondary-btn-cta { /* Incluí o botão secundário da CTA */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  /* IMPORTANTE: Garante que o overflow hidden funcione */
+  border-radius: 25px; /* Manter o mesmo do botão */
+}
+
+.btn.glare::before,
+.btn-acao.glare::before,
+.cta-buttons .secondary-btn-cta::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    -45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn.glare:hover::before,
+.btn-acao.glare:hover::before,
+.cta-buttons .secondary-btn-cta:hover::before {
+  transform: translateX(100%);
+}
+
+/* Brilho ao passar pelos botões (busca/galeria - regra existente, mantida) */
+button.glare {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 8px; /* Manter o border-radius específico */
+}
+
+button.glare::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+      -45deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.25) 50%,
+      transparent 60%
+  );
+  transform: translateX(-200%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+button.glare:hover::before {
+  transform: translateX(100%);
+}
+
+.btn {
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin: 10px;
+  background-color: #FFE135;
+  color: #333;
+}
+
+.whatsapp-btn {
+  display: inline-block; /* garante largura/altura de botão */
+  position: relative;    /* para o ::before se posicionar nele */
+  overflow: hidden;      /* evita o brilho vazar */
+  border-radius: 25px;  /* ou o mesmo valor que você usa normalmente */
+  z-index: 1;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Diferenciais */
+.diferenciais {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.diferenciais h2 {
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card i {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+/* Eventos */
+.eventos {
+  padding: 50px 20px;
+}
+
+.eventos h2 {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 40px;
+}
+
+/* Grade de cards */
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(px, 1fr)); /* colunas fluídas */
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  place-items: center; /* alinha conteúdo dentro de cada célula */
+}
+
+/* Estilo dos cards */
+.evento-card {
+  height: 350px;
+  width: 100%;
+  max-width: 100%; /* permite preencher toda a célula */
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  height: 350px; /* <--- NOVO: Defina a altura total do card aqui */
+  display: flex; /* Adicione display flex */
+  flex-direction: column; /* Organize os itens em coluna */
+}
+
+.evento-card:hover {
+  transform: scale(1.02);
+}
+
+.evento-card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  height: 270px !important;
+  object-fit: cover;
+  display: block;
+}
+
+.evento-card h3 {
+  text-align: center;
+  padding: 15px;
+  background-color: white;
+  font-size: 1.1rem;
+  color: #333;
+  flex-shrink: 0; /* Impede que o título encolha */
+}
+
+
+
+
+.parallax-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+.parallax-card-content {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+}
+
+.evento-card .parallax-card-content a {
+  display: flex;       /* Faz o link se comportar como um contêiner flexível */
+  flex: 1;             /* <-- NOVO E CORRETO: Faz o link crescer para preencher o espaço */
+}
+
+.parallax-card img {
+  transform: translateZ(40px);
+  transition: transform 0.2s ease-out;
+}
+
+.parallax-card h3 {
+  transform: translateZ(20px);
+  transition: transform 0.2s ease-out;
+}
+
+
+
+
+
+
+
+/* Ajustes para telas bem pequenas */
+@media (max-width: 500px) {
+  .eventos-grid {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .evento-card img {
+    height: 200px;
+  }
+
+  .evento-card h3 {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Depoimentos */
+.depoimentos {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+}
+
+.depoimentos h2 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.depoimentos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.depoimento {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.depoimento p {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.depoimento span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* CTA Final */
+.cta-final {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #4169E1;
+    color: rgb(0, 0, 0);
+}
+
+.cta-final h2 {
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    color: rgb(0, 0, 0);
+}
+
+/* Footer */
+footer {
+    display: flex;
+    margin-top: auto;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    padding: 30px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+footer > img {
+  width: 200px;
+  margin: auto;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+
+
+
+
+
+
+
+.eventos-grid {
+  display: grid;
+  /*grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));*/
+  gap: 4%;
+  padding: 10px 0;
+}
+
+.evento-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%;
+}
+
+.evento-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.evento-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+.evento-card p {
+  margin: 10px 0;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #444;
+}
+
+.categoria h4 {
+  font-size: 22px;
+  font-family: 'Baloo 2', cursive;
+  color: #444;
+  margin: 40px 0 10px;
+  padding-left: 10px;
+  border-left: 5px solid #ffaad4; /* destaque visual com cor */
+}
+
+.categoria h3 {
+  font-size: 26px;
+  font-family: 'Baloo 2', cursive;
+  color: #2b2b2b;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.categoria h3 i {
+  color: #ffaad4;
+  font-size: 26px;
+}
+
+#btn-topo {
+  position: fixed;
+  bottom: 80px; /* posição inicial quando o gato ainda não interfere */
+  right: 10px;
+  z-index: 999;
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  color: #000; /* cor padrão */
+  transition: opacity 0.4s ease, visibility 0.4s ease, bottom 0.3s ease;
+}
+
+#btn-topo.mostrar {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+#btn-topo svg {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+#btn-topo:hover svg {
+  transform: scale(1.1);
+  fill: #ffaad4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* brilho ao passar pelos botoes */
+.btn.glare::before,
+.glare::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    -45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.btn.glare {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn.glare:hover::before,
+.glare:hover::before {
+  transform: translateX(100%);
+}
+
+
+
+
+
+
+
+
+/* ===================== NOVAS CLASSES PARA CORES DOS CARDS DE POLÍTICAS ===================== */
+/* Define um container para alinhar ao centro, caso a sua classe 'container-acoes' não faça isso */
+.politicas-publicas {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f8f8f8; /* Fundo leve para destacar a seção */
+}
+/* Cores específicas para cada card, mantendo o estilo de 'card-acao' */
+/* Card Educação: Azul Claro (semelhante ao Conexão & Diálogo) */
+.politicas-publicas .card-educacao i {
+    color: #4CAF50; /* Verde-esmeralda para o ícone, ajustando o tom */
+}
+.politicas-publicas .card-educacao {
+    background-color: #A0D2EB; 
+}
+/* Card Saúde: Amarelo (semelhante ao Capacitação & Oportunidade) */
+.politicas-publicas .card-saude i {
+    color: #FFC107; /* Amarelo-dourado para o ícone */
+}
+.politicas-publicas .card-saude {
+    background-color: #FFEE93; 
+}
+/* Card Acessibilidade/Transporte: Verde (Semelhante ao Incidência Política) */
+.politicas-publicas .card-transporte i {
+    color: #008B8B; /* Turquesa escuro para o ícone */
+}
+.politicas-publicas .card-transporte {
+    background-color: #79CC9E; 
+}
+/* Card Trabalho e Renda: Vermelho/Coral */
+.politicas-publicas .card-trabalho i {
+    color: #F44336; /* Vermelho vibrante para o ícone */
+}
+.politicas-publicas .card-trabalho {
+    background-color: #F79F8B; 
+}
+/* Card Direitos e Benefícios: Lilás/Roxo */
+.politicas-publicas .card-beneficios i {
+    color: #9C27B0; /* Roxo mais escuro para o ícone */
+}
+.politicas-publicas .card-beneficios {
+    background-color: #B39DDB; 
+}
+/* Ajuste para botões dentro da nova seção para manter a coerência visual */
+.politicas-publicas .btn-acao {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+/* Card Cultura, Esporte e Lazer: Roxo/Magenta */
+.politicas-publicas .card-cultura-esporte i {
+    color: #9C27B0; /* Roxo */
+}
+.politicas-publicas .card-cultura-esporte {
+    background-color: #E1BEE7; /* Lilás mais claro */
+}
+
+/* Card Habitação e Urbanismo: Cinza/Azul Marinho */
+.politicas-publicas .card-habitacao i {
+    color: #455A64; /* Cinza escuro */
+}
+.politicas-publicas .card-habitacao {
+    background-color: #CFD8DC; /* Cinza claro */
+}
+
+/* Card Tecnologia Assistiva e Comunicação: Ciano/Azul */
+.politicas-publicas .card-tecnologia i {
+    color: #00BCD4; /* Ciano */
+}
+.politicas-publicas .card-tecnologia {
+    background-color: #B2EBF2; /* Ciano claro */
+}
+
+
+
+
+
+
+/* Seção principal de Contato */
+.secao-contato {
+    max-width: 1000px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Coluna de Informações (Esquerda) */
+.info-contato {
+    flex: 1;
+    min-width: 300px;
+    background-color: #F8F8F8; /* Fundo levemente diferente */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info-contato h2 {
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+    color: #444;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #4169E1; /* Cor de destaque (Azul) */
+    min-width: 20px;
+}
+
+.info-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+    color: #ff0000; /* Cor de destaque (Vermelho) */
+}
+
+.mapa-contato {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Coluna do Formulário (Direita) */
+.form-contato {
+    flex: 2;
+    min-width: 300px;
+    padding: 40px;
+}
+
+.form-contato h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #4169E1; /* Cor de foco */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-enviar {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #ff0000; /* Cor de destaque (Vermelho) */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-enviar:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .secao-contato {
+        flex-direction: column;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .info-contato {
+        padding: 30px;
+        border-radius: 0;
+    }
+    .form-contato {
+        padding: 30px;
+    }
+}
+
+
+
+.secao-materiais {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.secao-materiais h1 {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.secao-materiais .introducao {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Área de Filtros */
+.filtros-materiais {
+    background-color: #F8F8F8;
+    padding: 25px 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.filtros-materiais label {
+    font-weight: 700;
+    color: #555;
+    margin-right: 10px;
+    align-self: center; /* Alinha o label verticalmente */
+}
+
+.filtros-materiais select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    min-width: 180px;
+    appearance: none; /* Remove o estilo padrão do navegador */
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.8%204.9-4.8%2011.6-2.6%2017.9l139.3%20220.6c3.4%205.4%209.6%208.8%2016.3%208.8s12.9-3.4%2016.3-8.8L290.8%2095.1c2.2-6.3%201.2-13-2.6-17.9z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.filtros-materiais select:focus {
+    border-color: #4169E1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.2);
+}
+
+/* Grid de Materiais */
+.grid-materiais {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    justify-content: center;
+}
+
+.material-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.material-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.material-content {
+    padding: 20px;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.material-content .categoria-tag {
+    display: inline-block;
+    background-color: #4169E1; /* Azul */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.material-content h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.material-content p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Garante que o parágrafo ocupe o espaço */
+}
+
+.material-card .btn-material {
+    display: inline-block;
+    background-color: #ff0000; /* Vermelho */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    align-self: flex-start; /* Alinha o botão à esquerda dentro do card */
+}
+
+.material-card .btn-material:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+}
+
+/* Indicador de Tipo (opcional, para e-book, vídeo, etc.) */
+.tipo-material-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.parallax-card-content h3 {
+  margin-bottom: 0px;
+}
+
+/* Adicionada a media query para o botão de menu, para corrigir o problema original */
+@media (max-width: 768px) {
+  .abrir-menu {
+    opacity: 1; /* Mostra o botão */
+    visibility: visible; /* Torna o botão visível */
+  }
+  
+  /* Remove a classe .mostrar-mobile se ela for usada em algum CSS externo */
+  .abrir-menu.mostrar-mobile {
+      opacity: 1 !important;
+      visibility: visible !important;
+  }
+  .imagem-fixa {
+    display: none;
+  }
+  .hero-content h1 {
+    font-size: 2.7rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  } 
+}

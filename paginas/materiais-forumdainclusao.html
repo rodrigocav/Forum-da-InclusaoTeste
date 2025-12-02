@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais - Fórum da Inclusão</title>
+    
+    <link rel="icon" type="image/png" href="../assets/logo_forumdainclusao-Imagem.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/style-forumdainclusao.css">
+</head>
+
+<body>
+
+    <div id="preloader" class="neon-loader fullscreen-loader">
+        <div class="neon-loader-ring"></div>
+    </div>
+
+    <a href="../paginas/contato.html" id="imagem-logo-link" aria-label="Ir para a página de contato do Fórum">
+        <img loading="lazy" src="../assets/logo_forumdainclusao-Transparente-parcial.png" alt="Logotipo parcial do Fórum da Inclusão" class="imagem-fixa carregamento-postergado">
+    </a>
+
+    <header>
+        <button class="abrir-menu" aria-label="Abrir menu" aria-controls="menu-lateral" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="logo">
+            <a href="../paginas/index-forumdainclusao.html" id="logo-link" aria-label="Ir para a página inicial do Fórum da Inclusão">
+                <img id="imagem-logo" loading="lazy" class="carregamento-postergado" src="../assets/logo_forumdainclusao.jpg" alt="Logotipo do Fórum da Inclusão">
+                <p id="forum-inclusao1">Fórum da Inclusão</p>
+            </a>
+        </div>
+
+        <nav aria-label="Menu de navegação principal">
+            <ul>
+                <li><a href="../paginas/index-forumdainclusao.html">Início</a></li>
+                <li><a href="../paginas/sobre-forumdainclusao.html">Sobre o Fórum</a></li>
+                <li><a href="../paginas/politicas-forumdainclusao.html">políticas</a></li>
+                <li><a href="../paginas/materiais-forumdainclusao.html" class="ativo" aria-current="page">Materiais</a></li>
+                <li><a href="../paginas/contato-forumdainclusao.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="menu-lateral" role="navigation" aria-label="Menu lateral de navegação">
+                <ul class="menu-lateral-list">
+                    <li><a href="../paginas/index-forumdainclusao.html"><i class="fa fa-home"></i> Início</a></li>
+                    <li><a href="../paginas/sobre-forumdainclusao.html"><i class="fa fa-cat"></i> Sobre o Fórum</a></li>
+                    <li><a href="../paginas/politicas-forumdainclusao.html"><i class="fa fa-image"></i> Políticas</a></li>
+                    <li><a href="../paginas/materiais-forumdainclusao.html" class="ativo" aria-current="page"><i class="fa fa-calendar-alt"></i> Materiais</a></li>
+                    <li><a href="../paginas/contato-forumdainclusao.html"><i class="fa fa-envelope"></i> Contato</a></li>
+                </ul>
+            </div>
+            <div class="overlay-menu"></div>
+        </section>
+
+        <section class="secao-materiais" aria-labelledby="titulo-materiais">
+            <h1 id="titulo-materiais">Nossos Materiais</h1>
+            <p class="introducao">
+                Explore e baixe e-books, guias, artigos e outros recursos informativos sobre inclusão, acessibilidade e direitos da pessoa com deficiência.
+            </p>
+
+            <div class="filtros-materiais">
+                <label for="tipo-material">Tipo de Material:</label>
+                <select id="tipo-material">
+                    <option value="todos">Todos</option>
+                    <option value="ebook">E-books</option>
+                    <option value="guia">Guias</option>
+                    <option value="artigo">Artigos</option>
+                    <option value="video">Vídeos</option>
+                    <option value="infografico">Infográficos</option>
+                </select>
+
+                <label for="topico-material">Tópico:</label>
+                <select id="topico-material">
+                    <option value="todos">Todos</option>
+                    <option value="educacao">Educação</option>
+                    <option value="saude">Saúde</option>
+                    <option value="trabalho">Trabalho</option>
+                    <option value="acessibilidade">Acessibilidade</option>
+                    <option value="direitos">Direitos</option>
+                </select>
+
+                </div>
+
+            <div class="grid-materiais">
+                <div class="material-card" data-tipo="ebook" data-topico="educacao">
+                    <span class="tipo-material-badge">E-book</span>
+                    <img src="https://via.placeholder.com/400x200/4169E1/FFFFFF?text=E-book+Inclusão+Escolar" alt="Capa do E-book Inclusão Escolar">
+                    <div class="material-content">
+                        <span class="categoria-tag">Educação</span>
+                        <h3>Guia Prático para Inclusão Escolar de Alunos com Deficiência</h3>
+                        <p>Um material completo com dicas e estratégias para professores e pais garantirem uma educação inclusiva.</p>
+                        <a href="#" class="btn-material">Baixar E-book</a>
+                    </div>
+                </div>
+
+                <div class="material-card" data-tipo="video" data-topico="acessibilidade">
+                    <span class="tipo-material-badge">Vídeo</span>
+                    <img src="https://via.placeholder.com/400x200/ff0000/FFFFFF?text=Vídeo+Acessibilidade+Web" alt="Thumbnail do Vídeo Acessibilidade Web">
+                    <div class="material-content">
+                        <span class="categoria-tag">Acessibilidade</span>
+                        <h3>Desvendando a Acessibilidade Digital: Um Guia em Vídeo</h3>
+                        <p>Aprenda os princípios e ferramentas para tornar websites e aplicativos acessíveis para todos.</p>
+                        <a href="#" class="btn-material">Assistir Vídeo</a>
+                    </div>
+                </div>
+
+                <div class="material-card" data-tipo="artigo" data-topico="trabalho">
+                    <span class="tipo-material-badge">Artigo</span>
+                    <img src="https://via.placeholder.com/400x200/FFE135/000000?text=Artigo+Mercado+de+Trabalho" alt="Imagem de artigo sobre mercado de trabalho">
+                    <div class="material-content">
+                        <span class="categoria-tag">Trabalho</span>
+                        <h3>Os Desafios da Inclusão de PcDs no Mercado de Trabalho Brasileiro</h3>
+                        <p>Uma análise aprofundada sobre as barreiras e soluções para a empregabilidade de pessoas com deficiência.</p>
+                        <a href="#" class="btn-material">Ler Artigo</a>
+                    </div>
+                </div>
+
+                <div class="material-card" data-tipo="infografico" data-topico="direitos">
+                    <span class="tipo-material-badge">Infográfico</span>
+                    <img src="https://via.placeholder.com/400x200/00BCD4/FFFFFF?text=Infográfico+Direitos+PcD" alt="Infográfico sobre Direitos da PcD">
+                    <div class="material-content">
+                        <span class="categoria-tag">Direitos</span>
+                        <h3>Infográfico: Seus Direitos como Pessoa com Deficiência</h3>
+                        <p>Um resumo visual e fácil de entender dos principais direitos garantidos por lei.</p>
+                        <a href="#" class="btn-material">Ver Infográfico</a>
+                    </div>
+                </div>
+
+                <div class="material-card" data-tipo="guia" data-topico="saude">
+                    <span class="tipo-material-badge">Guia</span>
+                    <img src="https://via.placeholder.com/400x200/4CAF50/FFFFFF?text=Guia+Saúde+Mental" alt="Capa do Guia de Saúde Mental">
+                    <div class="material-content">
+                        <span class="categoria-tag">Saúde</span>
+                        <h3>Guia de Saúde Mental e Bem-Estar para Pessoas com Deficiência</h3>
+                        <p>Recursos e orientações para promover a saúde mental e qualidade de vida.</p>
+                        <a href="#" class="btn-material">Acessar Guia</a>
+                    </div>
+                </div>
+
+                <div class="material-card" data-tipo="ebook" data-topico="acessibilidade">
+                    <span class="tipo-material-badge">E-book</span>
+                    <img src="https://via.placeholder.com/400x200/9C27B0/FFFFFF?text=E-book+Design+Universal" alt="Capa do E-book Design Universal">
+                    <div class="material-content">
+                        <span class="categoria-tag">Acessibilidade</span>
+                        <h3>Design Universal: Criando Espaços para Todos</h3>
+                        <p>Descubra como o design universal pode transformar ambientes e produtos para serem inclusivos.</p>
+                        <a href="#" class="btn-material">Baixar E-book</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    
+    <footer role="contentinfo" aria-labelledby="titulo-footer">
+
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3 id="titulo-footer">CONTATO</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <a href="https://www.google.com/maps/place/R.+Lu%C3%ADs+Baldinato,+9+-+Jardim+Angela,+S%C3%A3o+Paulo+-+SP,+04935-100,+Brasil/@-23.683627,-46.768312,18z/data=!4m6!3m5!1s0x94ce52476b614e95:0xdd6a8d514707fe09!8m2!3d-23.6835409!4d-46.768431!16s%2Fg%2F11f4qjrjxt?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDkyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver localização no Google Maps">
+                        Rua Luis Baldinato, Nº 9 Jardim Sônia Regina, São Paulo / SP – CEP 04935-120 Brasil
+                    </a>
+                </p>
+                <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+551158319549" class="phone-link" aria-label="Ligar para o Fórum da Inclusão">(11) 5831-9549</a></p>
+            </div>
+            <div class="social-media">
+                <h3>SIGA-NOS</h3>
+                <a href="https://www.instagram.com/paroquiasantosmartires/" class="siga-nos-icon" target="_blank" rel="noopener noreferrer" aria-label="Acessar Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2025 Fórum da Inclusão - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    
+    <button id="btn-topo" title="Voltar ao topo" aria-label="Voltar ao topo" type="button" aria-describedby="descricao-voltar-topo">
+        <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">...</svg>
+    </button>
+
+    <div id="scripts-executaveis">
+        <!-- Scripts comuns (preloader, menu, etc.) devem ser adicionados aqui -->
+        <!-- Script específico para a página de materiais -->
+        <script src="../javascript/materiais.js"></script>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Fórum da Inclusão</title>
+    
+    <link rel="icon" type="image/png" href="../assets/logo_forumdainclusao-Imagem.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- CSS separado -->
+    <link rel="stylesheet" href="../css/style-forumdainclusao.css">
+</head>
+<body>
+
+    <div id="preloader" class="neon-loader fullscreen-loader">
+        <div class="neon-loader-ring"></div>
+    </div>
+
+    <a href="../paginas/contato.html" id="imagem-logo-link" aria-label="Ir para a página de contato do Fórum">
+        <img loading="lazy" src="../assets/logo_forumdainclusao-Transparente-parcial.png" alt="Logotipo parcial do Fórum da Inclusão" class="imagem-fixa carregamento-postergado">
+    </a>
+
+    <header>
+        <button class="abrir-menu" aria-label="Abrir menu" aria-controls="menu-lateral" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="logo">
+            <a href="../paginas/index-forumdainclusao.html" id="logo-link" aria-label="Ir para a página inicial do Fórum da Inclusão">
+                <img id="imagem-logo" loading="lazy" class="carregamento-postergado" src="../assets/logo_forumdainclusao-Imagem.png" alt="Logotipo do Fórum da Inclusão">
+                <p id="forum-inclusao1">Fórum da Inclusão</p>
+            </a>
+        </div>
+
+        <nav aria-label="Menu de navegação principal">
+            <ul>
+                <li><a href="../paginas/index-forumdainclusao.html">Início</a></li>
+                <li><a href="../paginas/sobre-forumdainclusao.html">Sobre o Fórum</a></li>
+                <li><a href="../paginas/contato-forumdainclusao.html" class="ativo" aria-current="page">Contato</a></li>
+            </ul>
+        </nav>
+
+        <section>
+            <div class="menu-lateral" role="navigation" aria-label="Menu lateral de navegação">
+                <ul class="menu-lateral-list">
+                    <li><a href="../paginas/index-forumdainclusao.html"><i class="fa fa-home"></i> Início</a></li>
+                    <li><a href="../paginas/sobre-forumdainclusao.html"><i class="fa fa-cat"></i> Sobre o Fórum</a></li>
+                    <li><a href="../paginas/contato-forumdainclusao.html"><i class="fa fa-envelope"></i> Contato</a></li>
+                </ul>
+            </div>
+            <div class="overlay-menu"></div>
+        </section>
+    </header>
+
+    <main>
+        <section class="secao-contato" aria-labelledby="titulo-contato">
+            <div class="info-contato">
+                <div>
+                    <h2 id="titulo-contato">Fale Conosco</h2>
+                    <p>Estamos prontos para ouvir suas dúvidas, sugestões ou propostas de parceria. Escolha a melhor forma de contato:</p>
+
+                    <hr>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <p>
+                            <a href="https://www.google.com/maps/place/R.+Lu%C3%ADs+Baldinato,+9" target="_blank">
+                                Rua Luis Baldinato, Nº 9, Jardim Sônia Regina, São Paulo / SP – CEP 04935-120 Brasil
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        <p><a href="tel:+551158319549">(11) 5831-9549</a></p>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <p><a href="https://wa.me/551158319549" target="_blank">(11) 5831-9549 (WhatsApp)</a></p>
+                    </div>
+                </div>
+
+                <iframe class="mapa-contato"
+                    src="https://maps.google.com/maps?q=Rua+Luis+Baldinato,+9+São+Paulo&output=embed"
+                    allowfullscreen loading="lazy">
+                </iframe>
+            </div>
+
+            <div class="form-contato">
+                <h3>Envie sua Mensagem</h3>
+
+                <form action="https://formsubmit.co/mateus.santosf05@gmail.com" method="POST">
+
+                    <input type="hidden" name="descricao" value="Mensagem enviada pelo site.">
+
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assunto">Assunto:</label>
+                        <select id="assunto" name="assunto" required>
+                            <option value="">Selecione...</option>
+                            <option value="duvida">Dúvida Geral</option>
+                            <option value="parceria">Proposta de Parceria</option>
+                            <option value="material">Sugestão de Material</option>
+                            <option value="outro">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Nova mensagem!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="box">
+                    <input type="hidden" name="_next" value="https://rad-cendol-1c8adf.netlify.app/paginas/thankyou">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer aria-labelledby="titulo-footer">
+      <img src="../assets/logo_forumdainclusao-Transparente-parcial.png" alt="">
+      <div class="copyright">
+        <p>© 2025 Fórum da Inclusão - Todos os direitos reservados</p>
+      </div>
+    </footer>
+    
+    <button id="btn-topo" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 32 32">...</svg>
+    </button>
+
+    <!-- JS separado -->
+    <script src="../javascript/contato.js"></script>
+</body>
+</html>
